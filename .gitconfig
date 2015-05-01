@@ -1,0 +1,26 @@
+[user]
+	name = <USERNAME>
+	email = <EMAIL>
+[alias]
+	co = checkout
+	ci=commit
+	st=status
+	br=branch
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+
+
+	plog = log --pretty=format:\"%h %Cblue%cr%Creset %cn %Cgreen%s%Creset\"
+
+	lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(cyan)%aD%C(reset) %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lg = !"git lg1"
+[core]
+	editor = subl -n -w
+	autocrlf = input
+	safecrlf = true
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
